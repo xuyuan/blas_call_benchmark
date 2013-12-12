@@ -34,7 +34,7 @@ def mul(m1, m2, i, r):
 
 results = []
 
-print "% CTypes & blas"
+print "% CTypes & " + libblas_name
 print "% Size, Time [ms]"
 
 for i in xrange(1, 500, 20):

@@ -1,8 +1,15 @@
 import timeit
 import numpy as np
 import ctypes
+import sys
 
-_blaslib = ctypes.cdll.LoadLibrary("libblas.so")
+libblas_name = "libblas.so"
+if len(sys.argv) > 1:
+    libblas_name = sys.argv[1]
+
+_blaslib = ctypes.cdll.LoadLibrary(libblas_name)
+
+
 def mul(m1, m2, i, r):
     no_trans = ctypes.c_char("n")
     n = ctypes.c_int(i)

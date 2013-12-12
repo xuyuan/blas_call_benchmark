@@ -1,8 +1,11 @@
-all: bench_fortran bench_numpy bench_blas bench_openblas bench_atlas plot
+all: bench_fortran bench_numpy bench_blas bench_openblas bench_atlas bench_numpy_py plot
 
 bench_fortran: bench_fortran.f90
 	gfortran -O3 -o $@ $^ -lblas
 	./bench_fortran > out_fortran.dat
+
+bench_numpy_py:
+	python bench_numpy.py numpy.core.multiarray.dot > out_numpy_py.dat
 
 bench_numpy:
 	python bench_numpy.py > out_numpy.dat	

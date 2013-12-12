@@ -4,11 +4,13 @@ import numpy as np
 t_numpy = np.loadtxt('out_numpy.dat', comments='%')
 t_blas = np.loadtxt('out_blas.dat', comments='%')
 t_openblas = np.loadtxt('out_openblas.dat', comments='%')
+t_atlas = np.loadtxt('out_atlas.dat', comments='%')
 t_fortran = np.loadtxt('out_fortran.dat', comments='%')
 
 plt.plot(t_numpy[:,0], t_numpy[:,1], '-x', label='Numpy')
 plt.plot(t_blas[:,0], t_blas[:,1], '-x', label='Ctypes+Blas')
 plt.plot(t_openblas[:,0], t_openblas[:,1], '-x', label='Ctypes+OpenBlas')
+plt.plot(t_atlas[:,0], t_atlas[:,1], '-x', label='Ctypes+ATBLAS')
 plt.plot(t_fortran[:,0], t_fortran[:,1], '-x', label='Fortran')
 plt.legend(loc='lower right')
 plt.xlabel('N')

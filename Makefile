@@ -1,4 +1,4 @@
-all: bench_fortran bench_numpy bench_blas bench_openblas plot
+all: bench_fortran bench_numpy bench_blas bench_openblas bench_atlas plot
 
 bench_fortran: bench_fortran.f90
 	gfortran -O3 -o $@ $^ -lblas
@@ -9,6 +9,9 @@ bench_numpy:
 
 bench_blas:
 	python bench_blas.py > out_blas.dat
+
+bench_atlas:
+	python bench_blas.py /usr/lib/atlas-base/atlas/libblas.so.3 > out_atlas.dat
 
 bench_openblas:
 	python bench_blas.py /usr/lib/openblas-base/libopenblas.so.0 > out_openblas.dat
